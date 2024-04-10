@@ -1,0 +1,13 @@
+1 - create three networks and mulitswitch
+2 - add ip for all PC and multswitch
+ -- in multswitch :
+    en --> conf ter --> ip routing --> interface fastEthernet 0/1 --> no switchport --> ip address 10.1.1.1 255.255.255.0 --> exit
+    reapet for all inputs
+create ospf 5 :
+   Switch(config)#router ospf 5 --> net 10.1.1.0 0.0.0.255 area 0
+                                --> net 10.2.1.0 0.0.0.31 area 0
+                                --> net 10.3.1.0 0.0.0.15 area 0 --> exit
+3 - access list standred :
+   Switch(config)#access-list 10 deny 10.1.1.0 0.0.0.255 --> access-list 10 permit any --> int fa 0/1 --> ip access-group 10 out 
+ 
+

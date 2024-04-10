@@ -1,0 +1,29 @@
+1 - create model and table
+2 - php artisan make:filament-resource Product
+  in app/Filament/Resources/ProductResource
+3 - in app/Filament/Resources/ProductResource.php:
+ -- add column in table 
+ return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('name'), 
+                Tables\Columns\TextColumn::make('price'), 
+            ])
+  -- add input to form
+ return $form
+            ->schema([
+                Forms\Components\TextInput::make('name'),
+                Forms\Components\TextInput::make('price'),
+            ]);
+
+  -- to return index to add function in app/Filament/Resources/pages/create and edit
+    protected function getRedirectUrl(): string 
+    { 
+        return $this->getResource()::getUrl('index'); 
+    } 
+
+-- delete
+  ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(), 
+            ])
+          

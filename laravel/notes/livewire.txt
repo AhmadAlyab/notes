@@ -1,0 +1,20 @@
+composer require livewire/livewire
+
+
+<html>
+<head>
+    @livewireStyles
+</head>
+<body>
+    @livewireScripts
+</body>
+</html>
+
+php artisan livewire:publish --config
+php artisan livewire:publish --assets
+
+-- create components
+php artisan make:livewire Emplyee
+
+--create verabiles 
+public $var

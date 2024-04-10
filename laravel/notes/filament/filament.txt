@@ -1,0 +1,30 @@
+in file composer.json in 
+line 67     "minimum-stability": "stable", to
+    "minimum-stability": "dev",
+composer require filament/filament:"^3.0-stable" -W --ignore-platform-req=ext-intl
+
+php artisan filament:install --panels
+
+// create new user from terminal
+php artisan make:filament-user
+
+======== to move from public to private  ==========================
+//  from .env change APP_ENV=local to APP_ENV=production 
+
+// app/Models/User.php:
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+ 
+class User extends Authenticatable implements FilamentUser
+{
+    // ...
+ 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->is_admin == 1;
+    }
+}
+
+// app/Providers/Filament/AdminPanelProvider.php:
+https://laraveldaily.com/lesson/filament-3/first-crud-menu-product-resource

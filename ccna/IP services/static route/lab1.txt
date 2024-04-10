@@ -1,0 +1,9 @@
+
+1 - give IP Adreess & subnet mask & getawy to end devices
+2 - Unshut all Interface
+3 - enter to route :
+clu => no => enable => confi ter => int fa 0/0 => ip adress 192.168.254 255.255.255.0 => no shutdown
+then exit => show ip int brief
+4 - start static route
+clu => no => enable => confi ter => ip route 172.16.1.0 255.255.255.0 10.0.0.3
+

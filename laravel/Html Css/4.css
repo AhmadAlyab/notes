@@ -1,0 +1,174 @@
+/* .par{
+    padding: 10px;
+    margin: 10px;
+} */
+
+.par div{
+    padding: 10px;
+    font-size: 30px;
+    margin-left: 10px;
+    display: inline;
+    width: 10%;
+    height: 130px;
+    background-color: #eee;
+    float: left;
+    
+}
+.par p{
+    margin-left: 120px;
+    background-color: #eee;
+    padding: 10px;
+    width: 50%;
+    height: 130px;
+    position: relative;
+}
+.par p::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    top: 0;
+    right: -15px;
+    height: 100%;
+    background-color: aqua;
+}
+
+.par p::before{
+    content: "";
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    margin-top: -20px;
+    
+}
+.par p::before{
+    content: "";
+    background-color: rgb(27, 44, 202);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    margin-top: 20px;   
+}
+/* contener & transparent */
+.par1{
+    counter-increment: members;
+}
+.par1 div{
+    padding: 10px;
+    font-size: 30px;
+    margin-left: 10px;
+    display: inline;
+    width: 10%;
+    height: 30px;
+    background-color: #eee;
+    float: left;
+    
+}
+.par1 p{
+    margin-left: 120px;
+    margin-right: 30px;
+    background-color: #eee;
+    padding: 10px;
+    width: 50%;
+    height: 30px;
+    position: relative;
+}
+.par1 p::before{
+    content: "";
+    left: -40px;
+    border-color:transparent #eee transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    position: absolute;
+}
+.par1 p::after{
+    content: counter(members);
+    background-color: red;
+    color: white;
+    left: 340px;
+    top: 2px;
+    position: absolute;
+    padding: 5px;
+    margin: 5px;
+}
+/* attr() */
+.par2{
+    counter-increment: members;
+}
+.par2 div{
+    padding: 10px;
+    font-size: 30px;
+    margin-left: 10px;
+    display: inline;
+    width: 10%;
+    height: 30px;
+    background-color: #eee;
+    float: left;
+    
+}
+.par2 p{
+    margin-left: 120px;
+    margin-right: 30px;
+    background-color: #eee;
+    padding: 10px;
+    width: 50%;
+    height: 30px;
+    position: relative;
+}
+.par2 p::before{
+    content: attr(data-text);
+}
+.par2 p::after{
+    content: counter(members);
+    background-color: red;
+    color: white;
+    left: 340px;
+    top: 2px;
+    position: absolute;
+    padding: 5px;
+    margin: 5px;
+}
+/* border-redius */
+.redius{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    outline: 5px solid rgb(46, 141, 97);
+    margin: 40px auto;
+    padding: 10px;
+    border-radius: 50%;
+}
+.redius1{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    margin: 40px auto;
+    padding: 10px;
+    border-top-left-radius: 20px 50%;
+    border-bottom-right-radius: 30px 20px;
+
+}
+.redius1::before{
+    content: "";
+    position: absolute;
+    left: 260px;
+    padding-top: 10px;
+    border-top-right-radius: 20px;
+    top: 556px;
+    border-color: transparent transparent red transparent;
+    border-style: solid;
+    border-width: 26px 10px;
+    height: 0px;
+    width: 0px;
+}
+/* box shadow */
+.shadow{
+    background-color: #eee;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 2px 7px 10px 0 #ddd ;
+}

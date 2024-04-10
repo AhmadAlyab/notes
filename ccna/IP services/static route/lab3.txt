@@ -1,0 +1,12 @@
+1 - enter ipv6 to pc0 
+   ip : fac1::2/64
+   gatway : fac1::1/64
+2 - enter to route 1 
+  en --> conf ter --> ipv6 un --> inte fa 0/0 --> ipv6 addrees fac1::1/64 --> no shutdown
+                                  inte fa 0/1 --> ipv6 addrees 2001::1/64 --> no shutdown
+  -->end
+  --> xhow ipv6 int brif
+repeat for router 2
+
+3 - for statc route in router1 to fac2
+  en --> conf ter --> ipv6 route fac2::/64 2001::2

@@ -1,0 +1,88 @@
+body{
+    background-color: #F5F5F1;
+    color:#221F1F;
+}
+.mult-card{
+    background-color: #EEE;
+}
+.card{
+    background-color: #E50914;
+    display: inline-block;
+    width: 25%;
+    padding: 15px;
+    text-align: center;
+    margin-left: 2%;    
+}
+    /*  التعامل مع الخط الزائد */
+.card p{
+    padding: inherit;
+    margin: 10px;
+    font-size: large;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Home Christmas';
+}
+.one, .tow, .three, .four{
+    background-color: #EEE;
+    padding: 10px;
+    margin: 10px 0;
+    width: 30%;
+}
+.one{
+    border-bottom:2px solid #221F1F;
+    color: #221F1F;
+    text-shadow: 0 4px 2px red;
+}
+.tow{
+    border-bottom:2px solid #E50914;
+    color: #E50914;
+    text-decoration: line-through;
+    text-indent: 10pX;
+}
+.three{
+    border-bottom:2px solid #929284;
+    color: #929284;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+}
+.four{
+    border-bottom:2px solid #1e5c44;
+    color: #F5F522;
+}
+.dar{
+    background-color:#E50914;
+    padding: 10px;
+    width: 20%;
+    margin: auto;
+    text-align: center;
+}
+.dar p{
+    border: 1px solid #F5F5F1;
+}
+.scroll{
+    padding: 12px;
+    margin: 30px;
+    background-color: #E50914;
+    width: 100px;
+    height: 200px;
+    overflow: auto;
+}
+.image {
+    border-left: 5px solid #929284 ;
+    width: 200px;
+    /* background-image: url('index.jpg') ;  */
+    /* color: rgb(21, 131, 107); */
+}
+
+.image p{
+    width: 300px;
+    padding: 10px;
+    display: inline-block;
+    background-color: #E50914;
+    margin: 10%;
+}
+
+.mr{
+    background-color: rgb(233, 230, 20);
+}

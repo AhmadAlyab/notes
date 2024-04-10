@@ -1,0 +1,38 @@
+php artisan make:model Image -m
+
+in model image:
+protected $guarded = [];
+    public function imageable()
+    {
+        return $this->morphTo();
+    }
+in table images:
+    $table->string('filename');
+            $table->integer('imageable_id');
+            $table->string('imageable_type');
+        
+in model user:
+public function images()
+    {
+        return $this->morphMany('App\Models\Image', 'imageable');
+    }
+
+
+save file:
+            if ($request->hasfile('photos')) {
+                foreach ($request->file('photos') as $file) {
+                    $name = $file->getClientOriginalName();
+                    $file->storeAs('attachments/students/' . $students->name, $file->getClientOriginalName(), 'upload_attachments');                    // insert in image_table
+                    $images = new Image();
+                    $images->filename = $name;
+                    $images->imageable_id = $students->id;
+                    $images->imageable_type = 'App\Models\Students';
+                    $images->save();
+                }
+            }
+in file system:
+
+                 =>['parent_attachments' 
+         ,   'driver' => 'local'
+           ( 'root' => storage_path('app/parent_attachments'
+  ];

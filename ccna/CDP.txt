@@ -1,0 +1,13 @@
+
+
+1 - enable
+2 - configure terminal
+3 - interfast fastEthernet 0/1
+4 - description ( infrmation )
+5 - end
+// show infromation about neighbor
+6 - show cdp neighbors
+6 - show cdp neighbors detail
+
+// create LLDP protocol
+lldp run

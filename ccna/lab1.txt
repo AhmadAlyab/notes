@@ -1,0 +1,7 @@
+switch
+
+1 - enable
+2 - configure terminal
+3 - hostname new_name      // change name switch
+4 - write               // save data after reload switch 
+3 - exit

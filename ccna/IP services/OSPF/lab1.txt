@@ -1,0 +1,8 @@
+
+
+1 - enter ip addrres for all devices
+2 - router ospf 1 --> network 10.10.10.0 0.0.0.255(عكس قناع الشبكة) area 0 --> network 10.10.11.0 0.0.0.128 area 0 
+repeat for other router
+3 - show ip ospf neighbor
+    show ip ospf database
+    show ip route

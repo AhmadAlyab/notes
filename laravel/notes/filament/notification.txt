@@ -1,0 +1,2 @@
+composer require filament/notifications -W --ignore-platform-req=ext-intl
+php artisan filament:install --scaffold --notifications

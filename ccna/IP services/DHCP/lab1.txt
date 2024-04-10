@@ -1,0 +1,7 @@
+1 - give ip for router 
+2 - create pool dhcp
+   ip dhcp pool name_pool --> network 192.168.10.0 255.255.255.0
+   --> default-router 192.168.10.1 --> dns-server 8.8.8.8 --> exit
+  ip dhcp excluded-address 192.168.10.1
+3 - test protocol so go to pc and choose dhcp in ip config..
+ to show ip address that take it you should write ( show ip dhcp bining )

@@ -1,0 +1,11 @@
+  -- App\http create folder Trait
+create file traitadd.php
+in file :
+namespace App\Http\Traits;
+trait trait{
+   public fun fun1(){
+}
+}
+
+in controller -->in class
+use traitadd

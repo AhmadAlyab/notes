@@ -1,0 +1,16 @@
+الشركة تتالف من قسمين موصولين الى سويتش وكل قسم يشكل شبكة 
+vlan
+
+سنقوم بعزل شبكتين عن بعضهما باستخدام vlan
+1 - enable
+2 - show vlan brife   // عرض الشبكات الافتراضية
+# create vlan :
+3 - confiugre terminal
+4 - vlan 10 // number of vlan
+5 - name acount // change name of vlan
+6 - exit 
+7 - interface fastEthernet 0/1  // enter in input 0/1
+8 - switchport mode access  // becouse is enddevices
+9 - switchport access vlan 10 // the input 0/1 become for vlan 10
+10 - interface fastEthernet 0/3  // enter in input 0/1
+11 - switchport mode trunk  // becouse is switch

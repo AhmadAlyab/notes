@@ -1,0 +1,51 @@
+login in https://mailtrap.io/ --> chosse email testing start testing --> show credentials --> copy deatiles to .env
+MAIL_MAILER=smtp             
+MAIL_HOST=sandbox.smtp.mailtrap.io             
+MAIL_PORT=587 
+MAIL_USERNAME=fd1c5d6deaf7a2
+MAIL_PASSWORD=24f73794b9ccb6
+MAIL_ENCRYPTION=tls
+
+
+--php artisan make:mail
+in app\Mail\AddRoo.php
+ public $subject , $body;
+    /**
+     * Create a new message instance.
+     */
+    public function __construct($subject,$body)
+    {
+        $this->subject = $subject;
+        $this->body = $body;
+    }
+
+    /**
+     * Get the message envelope.
+     */
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: $this->subject,
+        );
+    }
+
+    /**
+     * Get the message content definition.
+     */
+    public function content(): Content
+    {
+        return new Content(
+            view: 'email',
+        );
+    }
+
+-- create in resourse/views email.blade.php
+in email :
+{!! $body !!}
+
+in contrller
+  $subject = "test subject";
+  $body = "test body";
+  Mail::to('ahmdaldyab744@gmail.com')->send(new AddRoo($subject,$body));
+     
+-- php artisan config:cache

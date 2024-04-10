@@ -1,0 +1,14 @@
+
+method 1 :
+To add password for input 1/0 :
+  en --> conf ter --> line console 0 --> password consolepass --> login
+To check protocol for password 
+ وصل الجهاز بالراوتر و الدخول الى الكمبيوتر ثم الى 
+terminal
+
+-- to protect input aux : en --> conf ter --> line aux 0 --> password consolepass --> login --> end --> wr
+-- To add password between enable mode and private mode
+    en --> conf ter --> enable password ofkvvlvg -->end 
+
+method 2 :
+   en --> conf ter --> username ssss privilege 15 password 123 -->line console 0 --> login local --> end --> wr

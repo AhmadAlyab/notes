@@ -1,0 +1,3 @@
+-- php artisan make:enum Enums\ColorsEnum --string
+-- php artisan make:class Services\RoleService
+-- php artisan make:interface Interfaces\RoleInterface

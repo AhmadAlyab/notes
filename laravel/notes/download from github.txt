@@ -1,0 +1,5 @@
+1 - Git push here
+git clone http.....
+2 - composer install
+3 - copy .env-exmple
+4 - php artisan key:generate

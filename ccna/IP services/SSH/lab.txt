@@ -1,0 +1,5 @@
+1 - hostname III --> ip domain-name III --> crypto key generate rsa --> 768 --> ip ssh version 2 
+      --> line vty 0 15 (العدد المسموح به للدخول الى الجهاز) --> transport input ssh --> exit -->
+      username ahmad privilege 15 password 123 
+2- to save update config : en --> copy running-config startup-config 
+3 - to reach the router from PC : ssh -l ahmad 172.16.1.2 --> 123 --> نضغط انتر

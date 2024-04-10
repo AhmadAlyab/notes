@@ -1,0 +1,12 @@
+            'email' => [
+                'nullable',
+                'email',
+                Rule::unique('customers')->where('company_id', $this->header('company'))->ignore(Auth::id(), 'id'),
+            ],
+                'min:8',
+            'customer_avatar' => [
+                'nullable',
+                'file',
+                'mimes:gif,jpg,png',
+                'max:20000'
+            

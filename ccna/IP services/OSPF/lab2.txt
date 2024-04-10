@@ -1,0 +1,3 @@
+1 - ente ip address for all devices
+2 - run ospf for devices
+   swith : ip routing --> router ospf 1 -->network 1.1.1.0 0.0.0.255 area 0

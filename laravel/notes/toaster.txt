@@ -1,0 +1,23 @@
+create Toaster
+Dependency 	Version
+PHP 	^8.0
+Laravel 	^8.0 | ^9.0 | ^10.0
+TailwindCSS 	^2.0 | ^3.0
+Livewire 	^2.0 | ^3.0 (as of tall-toasts v2)
+AlpineJS 	^3.0
+
+
+composer require usernotnull/tall-toasts
+
+
+packuge yuones/toaster
+composer require yoeunes/toastr
+
+toastr()->success('Data has been saved successfully!');
+
+@section('css')
+    @toastr_css
+
+@section('js')
+@toastr_js
+@toastr_render

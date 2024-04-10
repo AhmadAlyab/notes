@@ -1,0 +1,15 @@
+1 - inatitl network
+2 - create ospf
+3 - create ACL
+  access-list 1 permit 10.10.10.0 0.255.255.255
+4 - NAT static
+  ip nat inside source static 10.10.10.2 9.9.9.3
+-->  ip nat inside source static 10.10.10.3 9.9.9.4
+-->  ip nat inside source static 10.10.10.5 9.9.9.5
+-->  int fa 0/0 --> ip nat inside --> exit
+-->  int fa 0/1 --> ip nat outside --> exit 
+5 - NAT dynmaic
+  ip nat pool Ah 9.9.9.3 9.9.9.3 9.9.9.6 netmask 255.255.255.248
+-->  ip nat inside source list 1 pool Ah 
+-->  int fa 0/0 --> ip nat inside --> exit
+-->  int fa 0/1 --> ip nat outside --> exit 

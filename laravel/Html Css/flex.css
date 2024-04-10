@@ -1,0 +1,160 @@
+h2{
+    text-align: center;
+    color: red;
+}
+.flex-self{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 20px auto;
+    height: 600px;
+    display: flex;
+    align-items: stretch;
+}
+.flex-self div{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    margin: 10px;
+}
+.flex-self .one2{
+    align-self: flex-end;
+}
+
+/* flex grow shring */
+.flex-grow{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+}
+.flex-grow div{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    height: 20px;
+    width: 20px;
+    flex-grow: 1;
+    margin: 10px;   
+}
+.flex-grow .one2{
+    flex-grow: 2;
+}
+.flex-grow .one3{
+    flex-shrink: 3;
+}
+.flex-grow .one1{
+    order: 5;
+}
+
+.flex-content{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 20px auto;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+.flex-content .one{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    height: 20px;
+    width: 20%;
+    margin: 10px;
+}
+
+.flex-just{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.flex-just .one{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    margin: 10px;
+}
+.flex-aligne{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-aligne .one,.one1{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    margin: 10px;
+}
+.one1{
+    height: 100px;
+}
+
+.float-par{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+}
+.float-par .one{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    margin: 10px;
+}
+.flex-par{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+}
+.flex-par .one{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    margin: auto;
+}
+.cflex-par{
+    width: 600px;
+    background-color: #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+.cflex-par .one{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    margin: auto;
+}

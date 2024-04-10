@@ -1,0 +1,11 @@
+- give ip address for router 1 
+  int fa 0/1 --> ip address 10.10.10.10 255.255.255.0 --> no shutdown --> exit
+1 - DHCP
+  ip ducp pool name1 --> network 172.16.10.0 255.255.255.0 --> defaul-router 172.16.10.1 --> dns-server 1.1.1.1 -->exit
+  ip dhcp exclude-address 172.16.10.1
+- give ips for router0 
+2 - Routing
+router 0 : router ospf 1 --> network 10.10.10.0 0.0.0.255 area 0 --> network 172.16.10.0 0.0.0.255 area 0 -->end
+router 0 : router ospf 1 --> network 10.10.10.0 0.0.0.255 area 0 -->end
+3 - Realy
+in router 0 : int fa 0/0 --> ip helper-adress 10.10.10.10 -->end

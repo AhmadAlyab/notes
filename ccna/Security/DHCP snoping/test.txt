@@ -1,0 +1,16 @@
+-- create network in file test :
+1 - in router0:
+   en --> conf ter --> int fas 0/0 --> ip add 192.168.10.1 255.255.255.0 --> no shutdown
+   --> exit --> ip dhcp pool snoping --> network 192.168.10.1 255.255.255.0 --> default-router 192.168.10.1
+   --> dns-server 1.1.1.1 --> exit --> ip dhcp excluded-address 192.168.10.1
+2 - repeat for router1 whwn pc wants ip from router0 so router1 reply to pc
+3 - turn on DHCP snoping in switch1
+  --> ev -->conf t --> ip dhcp snooping --> Switch(config)#ip dhcp snooping vlan 1 -->Switch(config)#int fa 0/5
+--> Switch(config-if)#ip dhcp snooping trust 
+4 - in routr0 : 
+Main-Router(config)#ip dhcp relay information trust-all 
+
+
+
+ 
+

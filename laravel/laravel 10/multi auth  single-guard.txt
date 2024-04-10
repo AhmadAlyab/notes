@@ -1,0 +1,201 @@
+=========================== single guard =============================
+composer create-project laravel/laravel:^10.0 example-app
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install
+
+php artisan migrate
+npm install
+npm run dev
+
+in package.json include
+"type": "module",
+
+=======================================================
+   public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->enum('role',['admin','customer','vendor'])->default('customer');
+            $table->enum('status',['active','inactive'])->default('inactive');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+php artisan make:seeder UserSeeder
+
+class UserSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        DB::table('users')->insert([
+            [
+                'name' => 'admin',
+                'email'=> 'admin@gmail.com',
+                'password' => bcrypt('123456789'),
+                'role' => 'admin'
+            ],
+            [
+                'name' => 'customer',
+                'email'=> 'customer@gmail.com',
+                'password' => bcrypt('123456789'),
+                'role' => 'customer'
+            ],
+            [
+                'name' => 'vendor',
+                'email'=> 'vendor@gmail.com',
+                'password' => bcrypt('123456789'),
+                'role' => 'vendor'
+            ]
+        ]);
+    }
+}
+
+$this->call(UserSeeder::class);
+
+php artisan db:seed
+==============================================================
+create vendor/dashboard.blade.php
+create admin/dashboard.blade.php
+================================================================
+PS C:\xampp\htdocs\project1> php artisan make:controller AdminPanel\AdminController
+php artisan make:controller VendorPanel\VendorController
+
+in \AdminController & \VendorController 
+ public function index(){
+        return view('admin.dashboard');
+    }
+=================================================================
+in web.php 
+Route::middleware(['auth','role:admin'])->group(function(){
+    Route::get('admin/dashboard',[AdminController::class,'index']);
+});
+Route::middleware(['auth','role:vendor'])->group(function(){
+    Route::get('vendor/dashboard',[VendorController::class,'index']);
+});
+
+===================================================================
+PS C:\xampp\htdocs\project1> php artisan make:middleware RoleMiddleware
+
+in http/kernel,php
+protected $middlewareAliases
+
+'role' => \App\Http\Middleware\RoleMiddleware::class,
+=================================================================
+in http\middleware\RoleMiddleware.php
+  public function handle(Request $request, Closure $next ,$role): Response
+    {
+        if ($request->user()->role !== $role){
+            abort(404);
+        }
+        
+        return $next($request);
+    }
+===================================================================
+in http/auth/AuthenticatedSessionContrller.php
+
+ public function store(LoginRequest $request): RedirectResponse
+    {
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        if ($request->user()->role == "admin") {
+            return redirect('admin/dashboard');
+        }elseif ($request->user()->role == "vendor") {
+            return redirect('vendor/dashboard');
+        }
+
+        return redirect()->intended(RouteServiceProvider::HOME);
+    }
+====================================================================
+in models\User
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+class User extends Authenticatable implements MustVerifyEmail
+=====================================================================
+==================vertify email============
+login in https://mailtrap.io/ --> chosse email testing start testing --> show credentials --> copy deatiles to .env
+in .env
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=fd1c5d6deaf7a2
+MAIL_PASSWORD=24f73794b9ccb6
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+when you register new user , it send email to 
+https://mailtrap.io/inboxes/2733167/messages/4108985400
+=========================================================================
+-- register for customer and vendor
+in views\auth\register
+ {{-- Roles --}}
+        <div>
+            <label for="" class="block font-medium text-sm text-gray-700">Select Role</label>
+            <select name="" class="block mt-1 w-full" id="">
+                <option value="vendor">Vendor</option>
+                <option value="customer">Customer</option>
+            </select>
+        </div>
+
+in model User.php
+protected $guarded = [];
+       
+in http\controller\auth\registercontroller in store
+ $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+        ]);
+
+To change status from inactive to active after vertify email :
+in http\auth\VertifyEmailController 
+    if ($request->user()->markEmailAsVerified()) {
+            event(new Verified($request->user()));
+        }
+
+        $obj = User::find($request->user()->id);
+        $obj->status = 'active';
+        $obj->save();
+
+        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+    
+=======================================================================================
+PS C:\xampp\htdocs\project1> php artisan make:controller CustomerPanel
+in \CustomerController
+  public function dashboard(){
+        return view('dashboard');
+    }
+ 
+in web.php 
+instead of 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+To :
+Route::get('/dashboard', [CustomerController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
+
+class CustomerController extends Controller
+{
+    public function dashboard(){
+        if (Auth::user()->role == "admin") {
+            return redirect()->route('admin/dashboard');
+        }elseif (Auth::user()->role == "vendor") {
+            return redirect()->route('vendor/dashboard');
+        }
+        return view('dashboard');
+    }
+}

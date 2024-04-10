@@ -1,0 +1,16 @@
+//create input from tow input
+// switch 1
+// create input named po1
+1 - enable
+2 - configure terminal
+3 - interfast range fastEthernet 0/1-2
+4 - channel-group 1 mode active
+// switch 2
+1 - enable
+2 - configure terminal
+3 - interfast range fastEthernet 0/1-2
+4 - channel-group 2 mode active // you can chosse mode passive
+
+
+show interface status
+show etherchannel summary // show input for groups
