@@ -1,0 +1,80 @@
+ body: ListView(children: [
+            Container(
+              width: 100,
+              height: 200,
+              color: Colors.red,
+            ),
+            Text(
+              'I am here',
+              style: TextStyle(fontSize: 55),
+            ),
+            Text("description")
+          ])),
+list view in continer
+body: Container(
+          height: 200,
+          child: ListView(scrollDirection: Axis.horizontal, children: [
+            Container(
+              width: 100,
+              height: 200,
+              color: Colors.red,
+            ),
+            Text(
+              'I am here',
+              style: TextStyle(fontSize: 55),
+            ),
+            Text("description")
+          ])),
+
+ex : 
+ body: Container(
+          height: 1000,
+          width: 100,
+          child: ListView.builder(
+            itemCount: emplyee.length,
+            itemBuilder: (context, i) {
+              return Container(
+                color: Colors.red,
+                width: 50,
+                height: 100,
+                alignment: Alignment.center,
+                child: Text(
+                  emplyee[i]['name'],
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
+              );
+            },
+          )),
+    ));
+================ لفصل العناصر عن بعضهم ================
+ body: Container(
+          width: 100,
+          child: ListView.separated(
+            separatorBuilder: (context, i) {
+              return Container(
+                color: Colors.black,
+                height: 5,
+              );
+            },
+            itemCount: emplyee.length,
+            itemBuilder: (context, i) {
+              return Container(
+                color: i.isEven ? Colors.red : Colors.green,
+                width: 50,
+                height: 100,
+                alignment: Alignment.center,
+                child: Text(
+                  emplyee[i]['name'],
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
+              );
+            },
+          )),
+
+لوضع خط بدلا من continer نستخدم
+ return Divider(
+                color: Colors.black,
+                thickness: 2,
+              );
+لمنع الscroll
+physics: NeverScrollableScrollPhysics(),

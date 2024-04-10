@@ -1,0 +1,72 @@
+ TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.green,
+                    prefix: Icon(Icons.person),
+                    suffix: Icon(Icons.remove_red_eye),
+                    icon: Icon(Icons.person),
+                    //hintText: "User name",
+                    //helperStyle: TextStyle(color: Colors.red),
+                    //labelText: "user",
+                    //labelStyle: TextStyle(color: Colors.red),
+                    label: Text("user"),
+                  ),
+                )
+
+
+     TextField(
+                  //enabled: false,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red)),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 10)),
+                      disabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(width: 10)) 
+                          ),),
+                          
+           
+TextField(
+                  maxLength: 10,
+                  keyboardType: TextInputType.number,
+                  maxLines: 2,
+                  minLines: 1,
+                )
+
+
+class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController value1 = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('ahmad aldyab')),
+            body: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(children: [
+                TextField(
+                  controller: value1,
+                ),
+                MaterialButton(
+                    color: Colors.red,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      print(value1);
+                    })
+              ]),
+            )));
+  }
+}
+
+
+
+TextField(
+                  onChanged: (val) {
+                    setState(() {
+                      str = val;
+                    });
+                  },
+                ),
+                Text("$str")
+              

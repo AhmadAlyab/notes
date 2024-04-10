@@ -1,0 +1,25 @@
+================= Image ======================
+body : Container(
+          width: 233,
+          height: 434,
+          padding: EdgeInsets.all(10),
+          margin: EdgeInsets.all(32),
+          child : Image.network('src')
+          ),
+to enter image in App
+in pubspec.yaml in 63
+assets:
+     - images/1.jpg
+and create folder images then put 1,jpg in folder images
+child : Image.asset('Images/1.jpg')
+in error 
+flutter clear
+flutter pub get
+============================
+child : Image.asset(
+            'Images/1.jpg',
+            fit: BoxFit.fill,
+            width: 100,
+            height: 200,)
+          
+fit: BoxFit.cover

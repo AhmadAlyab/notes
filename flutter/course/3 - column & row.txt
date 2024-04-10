@@ -1,0 +1,82 @@
+child : Column(
+       الطول     mainAxisAlignment: MainAxisAlignment.center // end start,
+       العرص     crossAxisAlignment: CrossAxisAlignment.center // end start,
+            children: [
+                Text('ahmad new'),
+                Container( width: 100, height: 200,color: Colors.red,),
+            ],
+          ),
+child : Row(
+    العرض     mainAxisAlignment: MainAxisAlignment.center // end start,
+    الطول     crossAxisAlignment: CrossAxisAlignment.center // end start,
+            children: [
+                Text('ahmad new'),
+                Container( width: 100, height: 200,color: Colors.red,),
+            ],
+          ),
+=============== wrap ======================
+-- for row العناصر بجني بعض
+body: Container(
+          width: 200,
+          height: 200,
+          color: Colors.red,
+          child: Wrap(children: [
+            Container(
+              width: 100,
+              height: 200,
+              color: Colors.red,
+            ),
+            Container(
+              width: 100,
+              height: 200,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 100,
+              height: 200,
+              color: Colors.black,
+            ),
+          ]),
+        ),
+============== SingleChildScrollView ================
+افتراضيا تكون بالطول
+body: SingleChildScrollView(
+            child: Column(children: [
+              Container(
+                width: 100,
+                height: 200,
+                color: Colors.red,
+              ),
+              Container(
+                width: 100,
+                height: 200,
+                color: Colors.yellow,
+              ),
+              Container(
+                width: 100,
+                height: 200,
+                color: Colors.black,
+              ),
+            ]),
+          )),
+لعملها بالعرض
+body: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(children: [
+              Container(
+                width: 100,
+                height: 200,
+                color: Colors.red,
+              ),
+              Container(
+                width: 100,
+                height: 200,
+                color: Colors.yellow,
+              ),
+              Container(
+                width: 100,
+                height: 200,
+                color: Colors.black,
+              ),
+            ]),
+          )),

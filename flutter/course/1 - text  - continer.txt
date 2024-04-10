@@ -1,0 +1,36 @@
+============== Text ==============
+Text('ahmad ', style: TextStyle(
+          color: Colors.red ),)
+body : Text('ahmad ', style: TextStyle(
+          color: Color(0xff332211),
+          fontSize: 33.4 )
+============= continer ================
+ body : Container(
+          width: 233,
+          height: 434,
+          alignment: Alignment.bottomCenter,
+          padding: EdgeInsets.all(10),
+          margin: EdgeInsets.all(32),
+          child : const Text('ahmad ', style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w100,
+          fontSize: 33.4 ),)
+        ),
+notes : no contect color and decrition togother
+body : Container(
+          decoration: BoxDecoration(
+            color: Colors.black12,
+            border: Border.all(color: Colors.black, width: 10),
+            boxShadow: [BoxShadow(color: Colors.blue,offset: Offset(10,10), spreadRadius: 3 , blurRadius: 20)],
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+          width: 233,
+          height: 434,
+          alignment: Alignment.bottomCenter,
+          padding: EdgeInsets.all(10),
+          margin: EdgeInsets.all(32),
+          child : const Text('ahmad ', style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w100,
+          fontSize: 33.4 ),)
+          ),
+        

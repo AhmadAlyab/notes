@@ -1,0 +1,74 @@
+-- لعرض كم عنصر بالسطر
+gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,عدد العناصر في الصف
+                mainAxisSpacing: 10.3,المسافة بين الصفوف
+                childAspectRatio: 0.5), نسبة الطول بالنسبة للعرض
+                crossAxisSpacing: 10.2, التباعد بن الاعمدة
+               mainAxisExtent: 100.0, اعطاء طول ثابت
+
+  body: Container(
+          width: 100,
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10.2,
+              mainAxisExtent: 100.0,
+              mainAxisSpacing: 10.3,
+            ),
+            itemCount: emplyee.length,
+            itemBuilder: (context, i) {
+              return Container(
+                color: i.isEven ? Colors.red : Colors.green,
+                width: 50,
+                height: 100,
+                alignment: Alignment.center,
+                child: Text(
+                  emplyee[i]['name'],
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
+              );
+            },
+          )),
+    يمكن حذف bulider وتوابعها
+body: Container(
+          width: 100,
+          child: GridView.count(
+reverse: true,
+            crossAxisCount: 2,
+            crossAxisSpacing: 10.2,
+            mainAxisSpacing: 10.3,
+            children: [
+              Container(
+                color: Colors.red,
+                width: 50,
+                height: 100,
+                alignment: Alignment.center,
+                child: Text(
+                  "anything",
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
+              ),
+              Container(
+                color: Colors.red,
+                width: 50,
+                height: 100,
+                alignment: Alignment.center,
+                child: Text(
+                  "anything",
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
+              ),
+              Container(
+                color: Colors.red,
+                width: 50,
+                height: 100,
+                alignment: Alignment.center,
+                child: Text(
+                  "anything",
+                  style: TextStyle(fontSize: 22, color: Colors.white),
+                ),
+              ),
+            ],
+          )),

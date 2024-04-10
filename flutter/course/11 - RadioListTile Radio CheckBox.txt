@@ -1,0 +1,83 @@
+ String? country;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('ahmad aldyab')),
+            body: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(children: [
+                Text("Chosse"),
+                RadioListTile(
+                    title: Text('syria'),
+                    value: "syria",
+                    groupValue: country,
+                    onChanged: (val) {
+                      setState(() {
+                        country = val;
+                      });
+                    }),
+                RadioListTile(
+                    title: Text('syria'),
+                    value: "sa",
+                    groupValue: country,
+                    onChanged: (val) {
+                      setState(() {
+                        country = val;
+                      });
+                    }),
+                RadioListTile(
+                    contentPadding: EdgeInsets.all(10),
+                    activeColor: Colors.red,
+                    tileColor: Colors.grey,
+                    title: Text('syria'),
+                    value: "Eg",
+                    groupValue: country,
+                    onChanged: (val) {
+                      setState(() {
+                        country = val;
+                      });
+                    })
+              ]),
+            )));
+  }
+
+================ check box bool status1 = false;
+  bool status2 = false;
+  bool status3 = false;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('ahmad aldyab')),
+            body: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(children: [
+                Text("Chosse"),
+                CheckboxListTile(
+                    title: Text("dineer"),
+                    value: status1,
+                    onChanged: (val) {
+                      setState(() {
+                        status1 = val!;
+                      });
+                    }),
+                CheckboxListTile(
+                    title: Text("dineer"),
+                    value: status2,
+                    onChanged: (val) {
+                      setState(() {
+                        status2 = val!;
+                      });
+                    }),
+                CheckboxListTile(
+                    title: Text("dineer"),
+                    value: status3,
+                    onChanged: (val) {
+                      setState(() {
+                        status3 = val!;
+                      });
+                    })
+              ]),
+            )));
+  }

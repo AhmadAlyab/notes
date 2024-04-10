@@ -1,0 +1,27 @@
+=========== card =============
+body: Container(
+          child: ListView(
+        children: [
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Text("ahmad"),
+            ),
+          )
+        ],
+============== ListTitle   =========
+ Card(
+            margin: EdgeInsets.only(top: 200),
+            shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: ListTile(
+            onTap: () {
+              print('');
+            },تابع ينفذ عند الضغط على الكرت
+            isThreeLine: true, تنسيق افضل
+          اذا اخذت false تصبح غير فعالة
+            leading: Text("before"),قبل العنوان
+            title: Text('Ahmad'),عنوان الكرت
+            subtitle: Text('I am here'), وصف الكرت
+            trailing: Text('delete'), في الجهة اليسرى
+          ))

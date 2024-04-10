@@ -1,0 +1,29 @@
+
+class _MyHomePageState extends State<MyHomePage> {
+  GlobalKey<FormState> formstate = GlobalKey();
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('ahmad aldyab')),
+            body: Container(
+                padding: const EdgeInsets.all(10),
+                child: Form(
+                  key: formstate,
+                  child: Column(children: [
+                    TextFormField(
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return "is empty";
+                        }
+                      },
+                    ),
+                    MaterialButton(
+                        color: Colors.red,
+                        onPressed: () {
+                          if (formstate.currentState!.validate()) {}
+                        })
+                  ]),
+                ))));
+  }
+}

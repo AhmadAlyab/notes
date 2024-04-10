@@ -1,0 +1,40 @@
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int i = 0;
+  bool status = true;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('ahmad aldyab')),
+            body: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(children: [
+                IconButton(
+                    onPressed: () {
+                      setState(() {
+                        i++;
+                        status = true;
+                      });
+                    },
+                    icon: Icon(Icons.add)),
+                Text("counter $i"),
+                status ? Icon(Icons.star) : Icon(Icons.star_border_outlined),
+                IconButton(
+                    onPressed: () {
+                      setState(() {
+                        i--;
+                        status = false;
+                      });
+                    },
+                    icon: Icon(Icons.add)),
+              ]),
+            )));
+  }
+}

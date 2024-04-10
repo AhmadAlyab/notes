@@ -1,0 +1,39 @@
+bool status = true;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(title: const Text('ahmad aldyab')),
+            body: Container(
+              padding: const EdgeInsets.all(10),
+              child: Column(children: [
+                Switch(
+                    value: status,
+                    activeColor: Colors.red,
+                    activeTrackColor: Colors.red,
+                    inactiveTrackColor: Colors.green,
+                    inactiveThumbColor: Colors.green,
+                    onChanged: (val) {
+                      setState(() {
+                        status = val;
+                      });
+                    })
+              ]),
+            )));
+  }
+
+
+
+   SwitchListTile(
+                    title: Text("select"),
+                    value: status,
+                    activeColor: Colors.red,
+                    activeTrackColor: Colors.red,
+                    inactiveTrackColor: Colors.green,
+                    inactiveThumbColor: Colors.green,
+                    onChanged: (val) {
+                      setState(() {
+                        status = val;
+                      });
+                    })
+              
